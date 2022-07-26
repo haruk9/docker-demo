@@ -13,7 +13,8 @@ node {
    }
    stage('docker build/push') {
      withDockerRegistry([ credentialsId: "dockerhub", url: "https://index.docker.io/v2/" ]) {
-        bat "docker push haruk9/docker-nodejs-demo:build""
+        bat "docker push haruk9/docker-nodejs-demo:${commit_id}"
+     
      //docker.withRegistry('https://index.docker.io/v2/', 'dockerhub') {
        //def app = docker.build("haruk9/docker-nodejs-demo:${commit_id}", '.').push()
      }
